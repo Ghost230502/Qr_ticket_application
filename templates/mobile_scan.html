@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scanner Mobile</title>
+    <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+<body>
+    <h1>📱 Scanner de QR Code (Mobile)</h1>
+    <div id="reader" style="width:300px;"></div>
+    <form id="scanForm" method="POST" action="/scan">
+        <input type="hidden" name="scanned_code" id="scanned_code">
+    </form>
+    <script>
+        const scanner = new Html5Qrcode("reader");
+        scanner.start({ facingMode: "environment" }, {
+            fps: 10,
+            qrbox: 250
+        }, code => {
+            document.getElementById("scanned_code").value = code;
+            document.getElementById("scanForm").submit();
+            scanner.stop();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><title>Admin Dashboard</title></head>
+<body>
+    <h1>📋 Tickets scannés</h1>
+    <ul>
+        {% for id, code, scanned_at in tickets %}
+            <li><strong>{{ code }}</strong> — {{ scanned_at }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Retour</a>
+</body>
+</html>

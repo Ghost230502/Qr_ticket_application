@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QR Ticket Generator</title>
+</head>
+<body>
+    <h1>🎟️ Générer un ticket QR</h1>
+    <form action="/generate" method="post">
+        Nom : <input type="text" name="name" required><br>
+        Événement : <input type="text" name="event" required><br>
+        <button type="submit">Générer</button>
+    </form>
+    {% if qr_code %}
+        <h2>QR Code généré :</h2>
+        <img src="{{ qr_code }}" alt="QR Code">
+        <p><strong>Code :</strong> {{ code }}</p>
+    {% endif %}
+    <a href="/scan">Scanner un ticket</a> |
+    <a href="/admin">Dashboard Admin</a> |
+    <a href="/mobile-scan">Scan Mobile</a>
+</body>
+</html>
